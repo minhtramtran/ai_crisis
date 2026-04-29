@@ -48,10 +48,9 @@
     }
 
     /* ── NAV ── */
-    /* ── NAV ── */
     nav {
       border-bottom: 2px solid var(--ink);
-      padding: 0.9rem calc((100vw - 1100px) / 2 + 3rem);
+      padding: 0.9rem calc((100vw - 1300px) / 2 + 3rem);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -94,18 +93,7 @@
       overflow: hidden;
     }
 
-    .watermark {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%) rotate(-18deg);
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 11rem;
-      color: rgba(192,57,43,0.05);
-      white-space: nowrap;
-      user-select: none;
-      pointer-events: none;
-      letter-spacing: 0.05em;
-    }
+
 
     .doc-header {
       display: grid;
@@ -168,6 +156,7 @@
       letter-spacing: 0.02em;
       color: var(--ink);
       margin-bottom: 0.5rem;
+      text-align: center;
     }
     h1.hero-title .serif {
       font-family: 'Playfair Display', Georgia, serif;
@@ -177,14 +166,13 @@
     }
 
     .hero-abstract {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
       padding-top: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
     }
-    @media (max-width: 640px) { .hero-abstract { grid-template-columns: 1fr; } }
     .hero-abstract p {
-      font-size: 1rem;
+      font-size: 1.3rem;
       line-height: 1.85;
       color: var(--ink2);
     }
@@ -215,20 +203,14 @@
     }
 
     /* ── SECTIONS ── */
-    section { padding: 3.5rem calc((100vw - 1100px) / 2 + 3rem); }
-    @media (max-width: 1160px) { section { padding: 3.5rem 3rem; } }
+    section { padding: 3.5rem calc((100vw - 1300px) / 2 + 3rem); }
+    @media (max-width: 1360px) { section { padding: 3.5rem 4rem; } }
+    @media (max-width: 768px) { section { padding: 3.5rem 1.5rem; } }
 
     .section-heading {
       display: flex; align-items: baseline; gap: 1.5rem;
       margin-bottom: 2.5rem;
       padding-bottom: 0.75rem;
-      border-bottom: 2px solid var(--ink);
-    }
-    .section-num {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.63rem;
-      color: var(--faded);
-      letter-spacing: 0.1em;
     }
     h2.section-title {
       font-family: 'Bebas Neue', sans-serif;
@@ -250,36 +232,28 @@
       flex-direction: column;
     }
     .theme-index {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.8rem;
-      color: var(--rule);
-      line-height: 1;
-      margin-bottom: 0.6rem;
-      min-height: 2.4rem;
-      display: flex;
-      align-items: flex-end;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--faded);
+      margin-bottom: 0.75rem;
     }
     .theme-card h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 1rem;
+      font-size: 1.4rem;
       font-weight: 700;
       line-height: 1.3;
       margin-bottom: 1.25rem;
     }
-    .theme-qs {
-      list-style: none;
-    }
-    .theme-qs li {
-      font-size: 0.9rem;
-      color: var(--ink2);
-      line-height: 1.6;
-      padding: 0.55rem 0;
-      display: flex; gap: 0.5rem;
-    }
-    .theme-qs li::before { content: '—'; color: var(--faded); flex-shrink: 0; }
+
+
+
 
     /* ── DATES ── */
     #dates { background: var(--paper2); }
+    #cfp { background: var(--paper); }
+    #outcomes { background: var(--paper); }
     .date-row {
       display: grid;
       grid-template-columns: 14rem 1fr auto;
@@ -289,8 +263,8 @@
     }
     .date-row:last-child { }
     @media (max-width: 640px) { .date-row { grid-template-columns: 1fr 1fr; gap: 0.5rem; } }
-    .date-label { font-size: 0.95rem; font-weight: 700; }
-    .date-val { font-family: 'IBM Plex Mono', monospace; font-size: 0.88rem; color: var(--faded); }
+    .date-label { font-size: 0.9rem; font-weight: 700; color: var(--faded); }
+    .date-val { font-family: 'IBM Plex Mono', monospace; font-size: 0.9rem; color: var(--ink); }
     .date-tag {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.58rem;
@@ -381,7 +355,7 @@
     }
     .org-card:hover { background: var(--paper); }
     .org-photo {
-      width: 72px; height: 72px;
+      width: 96px; height: 96px;
       border-radius: 50%;
       object-fit: cover;
       margin-bottom: 0.9rem;
@@ -389,7 +363,7 @@
       filter: grayscale(15%);
     }
     .org-initials {
-      width: 72px; height: 72px;
+      width: 96px; height: 96px;
       border-radius: 50%;
       background: var(--paper2);
       border: 1px solid var(--rule);
@@ -441,6 +415,101 @@
       color: rgba(242,237,228,0.12);
     }
 
+
+    /* ── SCHEDULE ── */
+    #schedule { background: var(--paper2); }
+    .schedule-list { display: flex; flex-direction: column; }
+    .schedule-row {
+      display: grid;
+      grid-template-columns: 7rem 1fr;
+      gap: 2rem;
+      padding: 0.7rem 0;
+      align-items: start;
+    }
+    .schedule-row:last-child { }
+    .schedule-row.schedule-break { opacity: 0.45; }
+    .schedule-row.schedule-section-start { margin-top: 0.5rem; padding-top: 1rem; }
+    .schedule-time {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--faded);
+      padding-top: 0.15rem;
+    }
+    .schedule-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.25rem;
+    }
+    .schedule-desc {
+      font-size: 0.95rem;
+      color: var(--ink2);
+      line-height: 1.65;
+    }
+
+
+    /* ── NEWS SECTION ── */
+    #news { background: var(--paper); }
+    .news-intro {
+      font-size: 1rem;
+      color: var(--ink2);
+      line-height: 1.8;
+      max-width: 680px;
+      margin-bottom: 2.5rem;
+    }
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    @media (max-width: 720px) { .news-grid { grid-template-columns: 1fr; } }
+    .news-card {
+      background: var(--paper);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--ink);
+      transition: background 0.15s;
+      border-bottom: 2px solid transparent;
+    }
+    .news-card:hover { background: #f9f9f9; border-bottom-color: var(--red); }
+    .news-source {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--red);
+    }
+    .news-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      line-height: 1.35;
+      color: var(--ink);
+    }
+    .news-takeaway {
+      font-size: 0.92rem;
+      color: var(--faded);
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+    .news-arrow {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--red);
+      margin-top: 0.5rem;
+    }
+    .news-logo {
+      height: 36px;
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+
     /* ── REVEAL ── */
     .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
     .reveal.in { opacity: 1; transform: none; }
@@ -455,14 +524,14 @@
 <div class="nav-links">
       <a href="#themes">Themes</a>
       <a href="#dates">Dates</a>
-      <a href="#cfp">Submit</a>
+      <a href="#cfp">Register Interest</a>
+      <a href="#schedule">Schedule</a>
       <a href="#organizers">Organisers</a>
     </div>
   </nav>
 
   <section id="hero">
-    <div class="watermark">CRISIS</div><div class="hero-rule"></div>
-    <div class="hero-eyebrow">Workshop Proposal &nbsp;·&nbsp; DIS 2026</div>
+    <div class="hero-rule"></div>
 
     <h1 class="hero-title">
       AI,<br/>
@@ -474,163 +543,221 @@
 
     <div class="hero-abstract">
       <p>
-        Crisis situations increasingly involve the circulation of complex information — real-time data streams, scientific modelling, risk assessments, and community-based knowledge. Around the world, communities and institutions face a growing range of crises, from climate-related events and public health emergencies to geopolitical instability.
-      </p>
-      <p>
-        This one-day workshop examines how AI participates in crisis-related sensemaking and decision-making, and considers the implications for designing interactive systems in high-stakes contexts. It invites participants to articulate design challenges, share emerging approaches, and identify future research directions.
+        This one-day workshop examines how AI participates in crisis-related sensemaking and decision-making, and considers the implications for designing interactive systems in high-stakes contexts.
       </p>
     </div>
 
-    <div class="meta-strip">
-      <div class="meta-item"><label>Format</label><p>One-Day Workshop</p></div>
-      <div class="meta-item"><label>Submission Deadline</label><p>TBA</p></div>
-      <div class="meta-item"><label>Location</label><p>TBA, 2026</p></div>
-      <div class="meta-item"><label>Contact</label><p>joel.fredericks<br/>@sydney.edu.au</p></div>
-    </div>
   </section>
 
-  <section id="themes">
+
+  <section id="news">
     <div class="section-heading reveal">
-      <span class="section-num">§ 01</span>
-      <h2 class="section-title">Workshop Themes</h2>
+      <h2 class="section-title">Why This Matters Now</h2>
     </div>
+    <p class="news-intro reveal">
+      Around the world, communities and institutions face a growing range of crises, from climate-related events and public health emergencies to geopolitical instability.<br/><br/>AI is already being deployed in crisis contexts around the world, from wildfire forecasting to humanitarian response. Yet its role in shaping how people interpret situations, communicate risk, and make decisions remains underexamined. This workshop brings a design lens to that gap.
+    </p>
+    <div class="news-grid">
 
-    <div class="themes-grid reveal">
+      <a class="news-card reveal" href="https://www.deloitte.com/uk/en/services/risk-advisory/perspectives/artificial-intelligence-ai-and-the-future-of-crisis-management.html" target="_blank" rel="noopener">
+        <div class="news-logo"><svg height="28" viewBox="0 0 120 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <text x="0" y="22" font-family="Arial,sans-serif" font-size="22" font-weight="bold" fill="#1a1612">Deloitte.</text>
+</svg></div>
+        <div class="news-source">Deloitte · 2025</div>
+        <div class="news-headline">Artificial Intelligence and the Future of Crisis Management</div>
+        <div class="news-takeaway">AI is reframing how organisations prepare, respond, and recover from crises. Supporting decision-makers, not replacing them, is the real challenge.</div>
+        <div class="news-arrow">→ Read more</div>
+      </a>
 
-      <div class="theme-card">
-        <div class="theme-index">01</div>
-        <h3>AI in Crisis Sensemaking</h3>
-        <ul class="theme-qs">
-          <li>How does AI enter existing practices of crisis sensemaking?</li>
-          <li>How do AI-generated outputs shape interpretation and situational understanding?</li>
-          <li>What roles do AI systems play alongside human judgement?</li>
-          <li>How do different actors interpret AI-supported information?</li>
-        </ul>
-      </div>
+      <a class="news-card reveal" href="https://www.undp.org/news/5-ways-ai-can-help-crisis-response-around-world" target="_blank" rel="noopener">
+        <div class="news-logo"><svg height="36" viewBox="0 0 90 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="36" height="36" rx="2" fill="#009EDB"/>
+  <text x="4" y="13" font-family="Arial,sans-serif" font-size="8.5" font-weight="bold" fill="white">UN</text>
+  <text x="4" y="24" font-family="Arial,sans-serif" font-size="8.5" font-weight="bold" fill="white">DP</text>
+  <text x="44" y="15" font-family="Arial,sans-serif" font-size="7" font-weight="bold" fill="#009EDB">UNITED NATIONS</text>
+  <text x="44" y="25" font-family="Arial,sans-serif" font-size="7" font-weight="bold" fill="#009EDB">DEVELOPMENT</text>
+  <text x="44" y="34" font-family="Arial,sans-serif" font-size="7" font-weight="bold" fill="#009EDB">PROGRAMME</text>
+</svg></div>
+        <div class="news-source">UNDP · 2024</div>
+        <div class="news-headline">5 Ways AI Can Help Crisis Response Around the World</div>
+        <div class="news-takeaway">From real-time damage assessment to early warning dashboards, UNDP is deploying AI across humanitarian crises, raising urgent questions about oversight and trust.</div>
+        <div class="news-arrow">→ Read more</div>
+      </a>
 
-      <div class="theme-card">
-        <div class="theme-index">02</div>
-        <h3>Designing for Uncertainty and Decision-Making</h3>
-        <ul class="theme-qs">
-          <li>How can interactive systems communicate uncertainty in crisis contexts?</li>
-          <li>What design approaches support interpretation rather than only prediction?</li>
-          <li>How might design influence how risks and possibilities are understood?</li>
-          <li>What challenges arise when AI informs high-stakes decisions?</li>
-        </ul>
-      </div>
-
-      <div class="theme-card">
-        <div class="theme-index">03</div>
-        <h3>Participation &amp; Responsibility in AI-Supported Decisions</h3>
-        <ul class="theme-qs">
-          <li>How does AI affect participation in crisis-related decision-making?</li>
-          <li>How are responsibility and accountability negotiated when AI is involved?</li>
-          <li>What design considerations arise when multiple actors rely on AI insights?</li>
-          <li>How can design support inclusive and transparent decision processes?</li>
-        </ul>
-      </div>
+      <a class="news-card reveal" href="https://research-and-innovation.ec.europa.eu/news/all-research-innovation-news/artificial-intelligence-has-potential-improve-emergency-and-crisis-management-struggles-interpret-2025-12-11_en" target="_blank" rel="noopener">
+        <div class="news-logo"><svg height="36" viewBox="0 0 160 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="36" height="36" rx="2" fill="#003399"/>
+  <text x="10" y="23" font-family="Arial,sans-serif" font-size="16" font-weight="bold" fill="#FFCC00">EU</text>
+  <text x="44" y="14" font-family="Arial,sans-serif" font-size="6.5" font-weight="bold" fill="#003399">EUROPEAN</text>
+  <text x="44" y="23" font-family="Arial,sans-serif" font-size="6.5" font-weight="bold" fill="#003399">COMMISSION</text>
+</svg></div>
+        <div class="news-source">European Commission · Dec 2025</div>
+        <div class="news-headline">AI Has Potential to Improve Crisis Management, But Struggles to Interpret Complex Situations</div>
+        <div class="news-takeaway">EU scientific advisors find AI excels at data-heavy tasks but falters in ambiguous, high-stakes scenarios where human interpretation and design matter most.</div>
+        <div class="news-arrow">→ Read more</div>
+      </a>
 
     </div>
   </section>
 
   <section id="dates">
     <div class="section-heading reveal">
-      <span class="section-num">§ 02</span>
-      <h2 class="section-title">Important Dates</h2>
+      <h2 class="section-title">Important Info</h2>
     </div>
     <div class="reveal">
-      <div class="date-row">
-        <div class="date-label">Submission Deadline</div>
-        <div class="date-val">To be announced</div>
-        <div class="date-tag pending">TBA</div>
+            <div class="date-row">
+        <div class="date-label">Workshop</div>
+        <div class="date-val">WS15 · Sunday 14 June 2026</div>
       </div>
       <div class="date-row">
-        <div class="date-label">Notification of Acceptance</div>
-        <div class="date-val">To be announced</div>
-        <div class="date-tag pending">TBA</div>
+        <div class="date-label">Location</div>
+        <div class="date-val">UTown, National University of Singapore · Room TBA</div>
       </div>
       <div class="date-row">
-        <div class="date-label">Camera-Ready Deadline</div>
-        <div class="date-val">To be announced</div>
-        <div class="date-tag pending">TBA</div>
-      </div>
-      <div class="date-row">
-        <div class="date-label">Workshop Day</div>
-        <div class="date-val">ACM DIS 2026</div>
-        <div class="date-tag">Confirmed</div>
+        <div class="date-label">EOI Deadline</div>
+        <div class="date-val">6 June 2025 (acceptance on a rolling basis)</div>
       </div>
     </div>
-    <p style="margin-top:1.2rem; font-family:'IBM Plex Mono',monospace; font-size:0.62rem; color:var(--faded); letter-spacing:0.05em;">
-      All deadlines 23:59 AoE. Dates confirmed once DIS 2026 schedule is finalised.
-    </p>
   </section>
 
   <section id="cfp">
     <div class="section-heading reveal">
-      <span class="section-num">§ 03</span>
-      <h2 class="section-title">Call for Participation</h2>
+      <h2 class="section-title">Expression of Interest</h2>
     </div>
     <div class="cfp-body">
       <div class="cfp-main reveal">
         <p>
-          We invite researchers and practitioners interested in AI, crisis contexts, and design to submit position papers or pictorials. Participants may come from areas including <strong>crisis informatics, civic technologies, speculative design, and AI-supported decision systems</strong>.
+          We welcome researchers and practitioners working at the intersection of AI, crisis contexts, and design.
         </p>
         <p>
-          We welcome both accounts of implemented systems and speculative design proposals. Work that is exploratory, in-progress, or critically engaged with the themes is especially encouraged. Submissions should follow the <strong>ACM DIS 2026 format</strong> and will be reviewed by the organising committee.
+          To register your interest, complete the short EOI form below. EOIs are assessed on a rolling basis and close on <strong>6 June 2025</strong> or once capacity is reached. We encourage early submission.
         </p>
         <p>
-          Accepted participants will give a brief presentation at the workshop, and will be invited to contribute to a joint post-workshop publication or collaborative follow-up.
+          Accepted participants will give a <strong>1-slide, 5-minute presentation</strong> at the start of the workshop. Activities are designed around participants' position statements, personalising discussions, supporting networking, and drawing on the diverse experiences everyone brings.
         </p>
 
-        <div class="formats">
-          <div class="format-row">
-            <div class="format-code">POS</div>
-            <div>
-              <strong>Position Papers</strong>
-              <p>2–4 pages. Articulate a design challenge, share an approach, or frame a research question related to the themes.</p>
-            </div>
-          </div>
-          <div class="format-row">
-            <div class="format-code">PIC</div>
-            <div>
-              <strong>Pictorials</strong>
-              <p>2–4 pages. Visual explorations, design probes, or speculative scenarios engaging with AI in crisis contexts.</p>
-            </div>
-          </div>
-        </div>
-
-        <a href="/cdn-cgi/l/email-protection#147e7b71783a7266717071667d777f6754676d707a716d3a7170613a7561" class="submit-btn">→ Submit via Email</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdH98e_JL7KpV2CQphaxbWvZ6rfXHVaxzyXgeEgYrMX0oOBbQ/viewform?usp=header" target="_blank" class="submit-btn">→ Register Your Interest</a>
       </div>
 
       <div class="reveal">
-        <div class="sidebar-box">
-          <h4>Submission Details</h4>
-          <p>ACM DIS 2026 format<br/>2–4 pages incl. references<br/>PDF, submitted via email</p>
-        </div>
-        <div class="sidebar-box">
-          <h4>Topics of Interest</h4>
-          <ul>
-            <li>Crisis informatics &amp; response</li>
-            <li>AI forecasting &amp; uncertainty</li>
-            <li>Participatory &amp; civic design</li>
-            <li>Speculative design in crises</li>
-            <li>Human-AI teaming</li>
-            <li>Risk communication design</li>
-            <li>Accountability &amp; AI ethics</li>
-            <li>Collective sensemaking</li>
-          </ul>
-        </div>
-        <div class="sidebar-box">
-          <h4>Who Should Attend</h4>
-          <p>Researchers, designers, and practitioners at the intersection of AI, HCI, crisis informatics, and civic technology. We aim for 15–20 participants.</p>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:0.62rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--faded); margin-bottom:1rem;">Workshop Themes</div>
+        <div style="display:flex; flex-direction:column; gap:1.25rem;">
+          <div>
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:0.62rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--faded); margin-bottom:0.4rem;">01</div>
+            <div style="font-family:'Playfair Display',serif; font-size:1rem; font-weight:700; line-height:1.3; color:var(--ink);">AI in Crisis Sensemaking</div>
+          </div>
+          <div>
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:0.62rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--faded); margin-bottom:0.4rem;">02</div>
+            <div style="font-family:'Playfair Display',serif; font-size:1rem; font-weight:700; line-height:1.3; color:var(--ink);">Designing for Uncertainty and Decision-Making</div>
+          </div>
+          <div>
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:0.62rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--faded); margin-bottom:0.4rem;">03</div>
+            <div style="font-family:'Playfair Display',serif; font-size:1rem; font-weight:700; line-height:1.3; color:var(--ink);">Participation &amp; Responsibility in AI-Supported Decisions</div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+
+  <section id="schedule">
+    <div class="section-heading reveal">
+      <h2 class="section-title">Tentative Schedule</h2>
+    </div>
+    <div class="reveal">
+            <div class="schedule-list">
+
+        <div class="schedule-row schedule-section-start">
+          <div class="schedule-time">Morning</div>
+          <div class="schedule-content">
+            <div class="schedule-title">Welcome &amp; Introductions</div>
+          </div>
+        </div>
+
+        <div class="schedule-row">
+          <div class="schedule-time"></div>
+          <div class="schedule-content">
+            <div class="schedule-title">Keynote</div>
+            <div class="schedule-desc">Speaker to be announced mid-May.</div>
+          </div>
+        </div>
+
+        <div class="schedule-row">
+          <div class="schedule-time"></div>
+          <div class="schedule-content">
+            <div class="schedule-title">1-Slide Presentations</div>
+            <div class="schedule-desc">Each participant gives a 5-minute, 1-slide introduction of their work and positionality.</div>
+          </div>
+        </div>
+
+        <div class="schedule-row schedule-break">
+          <div class="schedule-time"></div>
+          <div class="schedule-content">
+            <div class="schedule-title">Morning Tea</div>
+          </div>
+        </div>
+
+        <div class="schedule-row">
+          <div class="schedule-time"></div>
+          <div class="schedule-content">
+            <div class="schedule-title">Activity 1 — What is AI in Crisis?</div>
+            <div class="schedule-desc">Exploring AI applications in crisis contexts: is it informing or in control? How do people understand and act on AI-supported crisis information?</div>
+          </div>
+        </div>
+
+        <div class="schedule-row schedule-section-start">
+          <div class="schedule-time">Midday</div>
+          <div class="schedule-content">
+            <div class="schedule-title">Lunch</div>
+          </div>
+        </div>
+
+        <div class="schedule-row schedule-section-start">
+          <div class="schedule-time">Afternoon</div>
+          <div class="schedule-content">
+            <div class="schedule-title">Activity 2 — Speculative Design</div>
+            <div class="schedule-desc">Working through crisis scenarios grounded in workshop themes, imagining futures where AI plays an expanded role. What happens when AI takes over? What should we design for?</div>
+          </div>
+        </div>
+
+        <div class="schedule-row schedule-break">
+          <div class="schedule-time"></div>
+          <div class="schedule-content">
+            <div class="schedule-title">Afternoon Tea</div>
+          </div>
+        </div>
+
+        <div class="schedule-row">
+          <div class="schedule-time"></div>
+          <div class="schedule-content">
+            <div class="schedule-title">Group Presentations</div>
+            <div class="schedule-desc">Groups share outcomes and provocations from the afternoon activity.</div>
+          </div>
+        </div>
+
+        <div class="schedule-row schedule-section-start">
+          <div class="schedule-time"></div>
+          <div class="schedule-content">
+            <div class="schedule-title">Wrap Up &amp; Next Steps</div>
+            <div class="schedule-desc">Synthesis, future collaborations, and closing remarks.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="outcomes">
+    <div class="section-heading reveal">
+      <h2 class="section-title">Anticipated Outcomes</h2>
+    </div>
+    <div class="outcome-item reveal"><div class="outcome-n">01 /</div><p class="outcome-text">Mapping how AI currently enters crisis sensemaking, examining its applications, its role in shaping interpretation, and how different actors understand and use <strong>AI-supported information</strong>.</p></div>
+    <div class="outcome-item reveal"><div class="outcome-n">02 /</div><p class="outcome-text">Speculating on futures of AI in crisis contexts by working through crisis scenarios to interrogate <strong>design possibilities, risks, and responsibilities</strong> when AI plays an expanded role.</p></div>
+    <div class="outcome-item reveal"><div class="outcome-n">03 /</div><p class="outcome-text">Creating a basis for <strong>future publications and collaborations</strong>, including joint papers, panels, or follow-up workshops.</p></div>
+  </section>
+
   <section id="organizers">
     <div class="section-heading reveal">
-      <span class="section-num">§ 04</span>
       <h2 class="section-title">Organisers</h2>
     </div>
     <div class="org-grid reveal">
@@ -645,24 +772,12 @@
     </div>
   </section>
 
-  <section id="outcomes">
-    <div class="section-heading reveal">
-      <span class="section-num">§ 05</span>
-      <h2 class="section-title">Anticipated Outcomes</h2>
-    </div>
-    <div class="outcome-item reveal"><div class="outcome-n">01 /</div><p class="outcome-text">Discussing and comparing <strong>design approaches for AI-supported sensemaking</strong> and decision-making in crisis contexts, including both implemented systems and speculative design proposals.</p></div>
-    <div class="outcome-item reveal"><div class="outcome-n">02 /</div><p class="outcome-text">Examining current and emerging <strong>applications of AI tools</strong> in crisis planning — forecasting, information synthesis, and decision support — and considering their design implications.</p></div>
-    <div class="outcome-item reveal"><div class="outcome-n">03 /</div><p class="outcome-text">Exploring future design approaches for AI-supported sensemaking, particularly how systems might better support <strong>interpretation, deliberation, and communication under uncertainty</strong>.</p></div>
-    <div class="outcome-item reveal"><div class="outcome-n">04 /</div><p class="outcome-text">Clarifying the <strong>scope and concerns</strong> of this emerging area of design research within HCI and interaction design.</p></div>
-    <div class="outcome-item reveal"><div class="outcome-n">05 /</div><p class="outcome-text">Creating a basis for <strong>future publications and collaborations</strong>, including joint papers, panels, or follow-up workshops.</p></div>
-  </section>
-
   <footer>
     <div class="footer-inner">
       <div class="footer-left">
         <strong>AI, Sensemaking, and Decision-Making in Crisis Contexts</strong>
         <p>A workshop at ACM Designing Interactive Systems (DIS) 2026</p>
-        <p>Contact: <a href="mailto:joel.fredericks@sydney.edu.au">joel.fredericks@sydney.edu.au</a></p>
+        <p>Contact: <a href="/cdn-cgi/l/email-protection#640e0b01084a0216010001160d070f1724171d000a011d4a0100114a0511"><span class="__cf_email__" data-cfemail="84eeebe1e8aae2f6e1e0e1f6ede7eff7c4f7fde0eae1fdaae1e0f1aae5f1">[email&#160;protected]</span></a></p>
         <p style="margin-top:0.4rem;">© 2026 The Authors. Publication rights licensed to ACM.</p>
       </div>
       <div class="footer-class">WKSH-DIS2026</div>
